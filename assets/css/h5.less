@@ -1,0 +1,48 @@
+@import './reset.less';
+@import './vars.less';
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Microsoft YaHei, PingFangSC-Regular;
+  color: #333;
+  background-color: #fff;
+  -webkit-text-size-adjust: none;
+	-webkit-user-select: none;
+	-webkit-highlight: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-x: hidden;
+}
+
+.wrap {
+  padding: 50px 30px;
+  text-align: center;
+  .center();
+  h3 {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #999;
+  }
+  .loading {
+    margin-top: 50px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: url("~@images/loading.png") no-repeat;
+      background-size: 400px 40px;
+      animation: loading .5s step-end infinite;
+    }
+  }
+}
+
+@keyframes loading {
+  .frameAnimate(10, 40)
+}

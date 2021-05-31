@@ -1,0 +1,35 @@
+/* color */
+@main-color: #fff;
+@accent-color: #333;
+
+@a-color: #333;
+@a-hover-color: #f30;
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* 
+@frames 帧数
+@width  单帧图片宽度(无单位, 40px -> 40)
+*/
+.frameAnimate(@frames, @width) {
+  .loop(@frames);
+  .loop(@index) when (@index >= 0) {
+    @percent: @index * 100 / @frames;
+    @move: @index * -@width;
+    @selector: e("@{percent}%");
+    @position: e("@{move}px 0px");
+    @{selector} {
+      background-position: @position;
+    }
+    100% {
+      background-position: -(@width * (@frames - 1))px 0;
+    }
+    .loop((@index - 1));
+  }
+}
